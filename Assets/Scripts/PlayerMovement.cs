@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Animation")]
+
+    
+    private Animator _characterAnimator;
+    
 
     [Header("Player Rigidbody")]
 
@@ -12,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float _characterForwardSpeed;
     [SerializeField] private float _characterHorizontalSpeed;
-    
     private Vector3 _movement = new Vector3();
 
 
@@ -22,6 +26,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _rotationLerpSpeed;
     private Quaternion _targetRotation;
 
+
+    private void Start()
+    {
+        _characterAnimator = GetComponent<Animator>();
+       
+    }
+
+    private void Update()
+    {
+
+        if ((Input.GetKeyDown(KeyCode.LeftShift)))
+        {
+            
+            _characterAnimator.SetTrigger("slideTrigger");
+        }
+
+       
+            
+    }
 
     private void FixedUpdate()
     {
