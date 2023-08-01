@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class UIManager : MonoBehaviour
     public void OnGameDone()
     {
         _gameOverPanel.SetActive(true);
+    }
+
+    public void PressedRestartGameButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
 }
