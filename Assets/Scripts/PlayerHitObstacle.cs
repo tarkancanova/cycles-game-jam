@@ -1,16 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHitObstacle : MonoBehaviour
 {
 
+    private bool _isGameDone = false;
+    public bool IsGameDone
+    {
+        get { return _isGameDone; }
+        set { _isGameDone = value; }
+    }
 
-    private PlayerMovement playerMovementScript;
+
+    private PlayerMovement _playerMovementScript;
 
     private void Start()
     {
-        playerMovementScript = GetComponent<PlayerMovement>();
+        _playerMovementScript = GetComponent<PlayerMovement>();
     }
 
     
@@ -20,9 +25,16 @@ public class PlayerHitObstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("UpObstacle"))
         {
-            playerMovementScript.CharacterForwardSpeed = 0f;
-            playerMovementScript.CharacterAnimator.SetTrigger("IsDeathWithUpObstacle");
+            _playerMovementScript.CharacterForwardSpeed = 0f;
+            _playerMovementScript.CharacterAnimator.SetTrigger("IsDeathWithUpObstacle");
+            IsGameDone = true;
             
+
+            UIManager uiManager = FindObjectOfType<UIManager>();
+            if (uiManager != null)
+            {
+                uiManager.OnGameDone();
+            }
         }
     }
 }
