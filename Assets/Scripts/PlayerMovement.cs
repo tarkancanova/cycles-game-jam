@@ -6,6 +6,12 @@ public class PlayerMovement : MonoBehaviour
 
     
     private Animator _characterAnimator;
+
+    public Animator CharacterAnimator  //dýþardan eriþebilmek için getter setterlar kullandým
+    {
+        get { return _characterAnimator; }
+        set { _characterAnimator = value; }
+    }
     
 
     [Header("Player Rigidbody")]
@@ -16,6 +22,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Area")]
 
     [SerializeField] private float _characterForwardSpeed;
+
+    public float CharacterForwardSpeed    //dýþardan eriþebilmek için getter setterlar kullandým
+    {
+        get { return _characterForwardSpeed; }
+        set { _characterForwardSpeed = value; }
+    }
+
     [SerializeField] private float _characterHorizontalSpeed;
     private Vector3 _movement = new Vector3();
 
