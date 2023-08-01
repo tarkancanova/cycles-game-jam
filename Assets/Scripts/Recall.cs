@@ -7,7 +7,6 @@ public class Recall : MonoBehaviour
     [SerializeField] public float maxDuration;
     [SerializeField] private float saveInterval;
     [SerializeField] float recallSpeed;
-    [SerializeField] private Animator playerAnimator;
 
     [SerializeField] List<Vector3> positions;
 
@@ -31,7 +30,6 @@ public class Recall : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && positions.Count > 0)
             {
-                playerAnimator.SetBool("isRecalling", true);
                 recalling = true;
             }
 
@@ -58,8 +56,6 @@ public class Recall : MonoBehaviour
             }
             else
             {
-
-                playerAnimator.SetBool("isRecalling", false);
                 recalling = false;
             }
         }
