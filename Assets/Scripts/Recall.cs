@@ -15,14 +15,22 @@ public class Recall : MonoBehaviour
     private float saveStatsTimer;
     private float maxStatsStored;
 
+    private PlayerMovement _playerMovementScript;
+
     private void Start()
     {
         maxStatsStored = maxDuration / saveInterval;
+        _playerMovementScript = GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
-        PlayerRecall();
+        AnimatorStateInfo stateInfo = _playerMovementScript.CharacterAnimator.GetCurrentAnimatorStateInfo(0);
+        if (!stateInfo.IsName("Jump"))
+        {
+            PlayerRecall();
+        }
+            
     }
 
     private void PlayerRecall()

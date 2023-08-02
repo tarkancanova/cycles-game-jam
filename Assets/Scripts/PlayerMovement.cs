@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Area")]
 
     [SerializeField] private float _characterForwardSpeed;
+
     public float CharacterForwardSpeed    //dýþardan eriþebilmek için getter setterlar kullandým
     {
         get { return _characterForwardSpeed; }
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     }
     [SerializeField] private float _characterHorizontalSpeed;
     private Vector3 _movement = new Vector3();
+    [SerializeField] private float _characterJumpPower;
 
 
     [Header("Rotation Area")]
@@ -59,6 +61,26 @@ public class PlayerMovement : MonoBehaviour
         AnimatorStateInfo stateInfo = _characterAnimator.GetCurrentAnimatorStateInfo(0);
         float moveHorizontal = Input.GetAxis("Horizontal");
 
+        if(Input.GetKey(KeyCode.Space)) 
+        {
+            Debug.Log("girdi");
+            _characterAnimator.SetBool("Jump",true);
+            _movement.y = _characterJumpPower; 
+        }
+
+        
+        
+        
+
+        if (stateInfo.IsName("Jump"))
+        { 
+            _movement.y = _rb.velocity.y;
+            _characterAnimator.SetBool("Jump", false);
+
+        }
+
+        
+        
         if (stateInfo.IsName("Slide") || stateInfo.IsName("Recall"))
         {
             _movement.x = moveHorizontal * _characterHorizontalSpeed*0;
@@ -79,8 +101,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //movement code area
-        
-        _movement.y = _rb.velocity.y;
+
+       
         _rb.velocity = _movement;
 
         
