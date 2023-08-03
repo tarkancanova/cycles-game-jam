@@ -2527,7 +2527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDuration: 1
   saveInterval: 0.1
-  recallSpeed: 10
+  recallSpeed: 20
   playerAnimator: {fileID: 8431606963160132883}
   positions:
   - {x: 0, y: 0, z: 0}
