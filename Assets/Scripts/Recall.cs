@@ -9,6 +9,9 @@ public class Recall : MonoBehaviour
     [SerializeField] float recallSpeed;
     [SerializeField] private Animator playerAnimator;
 
+    [SerializeField] private Cooldown cooldown;
+    
+
     [SerializeField] List<Vector3> positions;
 
     private bool recalling;
@@ -26,6 +29,7 @@ public class Recall : MonoBehaviour
     private void Update()
     {
         AnimatorStateInfo stateInfo = _playerMovementScript.CharacterAnimator.GetCurrentAnimatorStateInfo(0);
+
         if (!stateInfo.IsName("Jump"))
         {
             PlayerRecall();
@@ -35,13 +39,20 @@ public class Recall : MonoBehaviour
 
     private void PlayerRecall()
     {
+
         if (!recalling)
         {
+
+            if (cooldown.IsCoolingDown) return;
             if (Input.GetKeyDown(KeyCode.E) && positions.Count > 0)
             {
                 playerAnimator.SetBool("isRecalling", true);
                 recalling = true;
+
+                cooldown.StartCooldown();
+
             }
+
 
             if (saveStatsTimer > 0)
             {
@@ -51,9 +62,15 @@ public class Recall : MonoBehaviour
             {
                 StoreStats();
             }
+
+            
         }
+
         else
         {
+
+
+            
             if (positions.Count > 0)
             {
                 transform.position = Vector3.Lerp(transform.position, positions[0], recallSpeed * Time.deltaTime);
@@ -63,6 +80,7 @@ public class Recall : MonoBehaviour
                 {
                     SetStats();
                 }
+
             }
             else
             {
@@ -71,6 +89,8 @@ public class Recall : MonoBehaviour
                 recalling = false;
             }
         }
+
+        
     }
 
     private void StoreStats()
