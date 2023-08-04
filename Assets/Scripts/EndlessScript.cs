@@ -20,7 +20,7 @@ public class EndlessScript : MonoBehaviour
     {
 
 
-        float waitTime = 0.4f;
+        float waitTime = 2f;
         InvokeRepeating("CreatePlatform", 0, waitTime);
 
     }
@@ -31,23 +31,8 @@ public class EndlessScript : MonoBehaviour
         int platformNumber = Random.Range(0, platforms.Length);
         GameObject PlatformCreator = Instantiate(platforms[platformNumber], pos, Quaternion.identity) as GameObject;
         pos.z += 100f;
-        //createdTiles.Add(PlatformCreator);
-
-
 
     }
-
-    //void Update()
-    //{
-    //    foreach (GameObject createdTile in createdTiles)
-    //    {
-    //        if (createdTile != null && player.transform.position.z >= plane.transform.position.z + 15)
-    //            if (createdTile.name == "Plane(Clone)")
-    //              Destroy(createdTile, 3f);
-    //    }
-    //}
-
-
 }
 
  
