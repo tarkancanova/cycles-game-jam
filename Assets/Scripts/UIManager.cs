@@ -16,10 +16,8 @@ public class UIManager : MonoBehaviour
     {
         _inGamePanelScore.text="0";
 
-       
-            InvokeRepeating("InvokeScore", 1f, .2f);
-        
-        
+        InvokeRepeating("InvokeScore", 1f, .2f);
+  
     }
 
     public void OnGameDone()
@@ -40,9 +38,7 @@ public class UIManager : MonoBehaviour
             _GameOverPanelScore.text = _inGamePanelScore.text;
             CancelInvoke("InvokeScore");
             
-            _inGamePanel.SetActive(false);
-            
-           
+            _inGamePanel.SetActive(false);  
         }
     }
 
