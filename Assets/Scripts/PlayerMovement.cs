@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Area")]
 
-    [SerializeField] private float _characterForwardSpeed;
+    [SerializeField] private float _characterForwardSpeed = 0;
 
     public float CharacterForwardSpeed    //dýþardan eriþebilmek için getter setterlar kullandým
     {
@@ -42,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         isGameEnd = false;
-        _characterAnimator = GetComponent<Animator>();      
+        _characterAnimator = GetComponent<Animator>();
+        Invoke("InvokeCharacterForwardSpeed", .2f);
     }
 
     private void Update()
@@ -124,5 +125,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.CompareTag("Tile"))
             Destroy(other.gameObject);
+    }
+
+    public void InvokeCharacterForwardSpeed()
+    {
+        _characterForwardSpeed = 8;
     }
 }

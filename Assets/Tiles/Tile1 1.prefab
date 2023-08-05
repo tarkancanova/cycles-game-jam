@@ -15099,7 +15099,7 @@ GameObject:
   - component: {fileID: 8604509807366419972}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: UpObstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43481,7 +43481,7 @@ GameObject:
   - component: {fileID: 7668678872878704925}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: UpObstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65294,7 +65294,7 @@ PrefabInstance:
     - target: {fileID: 3318814319540285649, guid: 88193897c86cbe9439b3e65ff3bf23d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.26
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 3318814319540285649, guid: 88193897c86cbe9439b3e65ff3bf23d4,
         type: 3}
@@ -67279,7 +67279,7 @@ PrefabInstance:
     - target: {fileID: 3318814319540285649, guid: 88193897c86cbe9439b3e65ff3bf23d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.26
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 3318814319540285649, guid: 88193897c86cbe9439b3e65ff3bf23d4,
         type: 3}
@@ -68209,7 +68209,7 @@ PrefabInstance:
     - target: {fileID: 3318814319540285649, guid: 88193897c86cbe9439b3e65ff3bf23d4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.26
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 3318814319540285649, guid: 88193897c86cbe9439b3e65ff3bf23d4,
         type: 3}
